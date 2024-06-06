@@ -19,6 +19,7 @@ jobs:
       - name: Build project
         run: |
           cmake --build _build --config Release
+          cmake --build _build --target coverage
 
 
   test:
@@ -33,6 +34,6 @@ jobs:
         cd third-party/gtest && git checkout release-1.11.0 && cd ../..
         cmake -H. -B_build -DBUILD_TESTS=ON
         cmake --build _build
-        cmake --build _build --target coverage
+        
     - name: Tests
       run:  _build/check
