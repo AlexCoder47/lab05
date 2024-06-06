@@ -27,11 +27,12 @@ jobs:
     - uses: actions/checkout@v4
     - name: Build
       run: |
+        cmake --build tests/ --target coverage
         mkdir third-party
         mkdir artifacts
         git submodule add https://github.com/google/googletest third-party/gtest
         cd third-party/gtest && git checkout release-1.11.0 && cd ../..
-        cmake --build --target coverage
+        
         cmake -H. -B_build -DBUILD_TESTS=ON
         cmake --build _build
     - name: Tests
