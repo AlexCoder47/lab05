@@ -22,6 +22,4 @@ if(BUILD_TESTS)
   target_link_libraries(check PRIVATE account transaction gtest_main gmock_main  --coverage)
   
   add_test(NAME check COMMAND check)
-  add_test(NAME coverage_tests COMMAND coverage_tests)
-  set_tests_properties(coverage_tests PROPERTIES COVERAGE ON)
 endif()
