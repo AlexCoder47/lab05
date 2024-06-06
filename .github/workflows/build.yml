@@ -39,4 +39,6 @@ jobs:
         cmake --build _build
         
     - name: Tests
-      run:  _build/check
+      run: |
+        _build/check
+        cmake --build _build --target coverage_tests
